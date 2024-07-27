@@ -5,13 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="ch_Y0b_icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style.css">
     <title>ST. Lawrence Guide</title>
     <style>
         body {
-        .download-link, .test-link {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        .download-link, .test-link, .altar-guild-link {
             margin: 20px 0;
             text-align: center;
+        }
+        .download-link, .test-link, .altar-guild-link {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .download-link {
+            background-color: #007bff;
+        }
+        .test-link {
+            background-color: #28a745;
+        }
+        .altar-guild-link {
+            background-color: #dc3545; /* Red color */
         }
         .glossary {
             background-color: #e7f0f8;
@@ -35,6 +71,15 @@
         .glossary a:hover {
             text-decoration: underline;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .center {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +89,7 @@
             <h2>1. Requirements of Being a Server</h2>
             <ul>
                 <li>One should be willing to serve God and forget the world around.</li>
-                <li>One should be willing to obey the rules and custom of the Parish he/she is serving at.</li>
+                <li>One should be willing to obey the rules and customs of the Parish he/she is serving at.</li>
                 <li>One should be able to read and write.</li>
                 <li>One must have understanding since they will be taught on a day-to-day basis.</li>
             </ul>
@@ -63,7 +108,7 @@
 
             <h3>Rules</h3>
             <ul>
-                <li>To respect and to be obedient</li>
+                <li>To respect and be obedient</li>
                 <li>To attend Guild meetings regularly</li>
                 <li>To be present and punctual at all services</li>
             </ul>
@@ -89,18 +134,19 @@
 
             <h3>St. Laurance Prayer</h3>
             <p>
-                Grant we beseech thee, Almighty God, that like thou did enabled Blessed Laurance to be victorious through the fire of torture, so may we have strength to quench the flames? Of our evil desire, through Jesus Christ our Lord. Amen.
+                Grant we beseech thee, Almighty God, that like thou did enable Blessed Laurance to be victorious through the fire of torture, so may we have strength to quench the flames of our evil desire, through Jesus Christ our Lord. Amen.
             </p>
 
-            <p><strong>PRIEST</strong>: Bless, Lord these thy servants as thou did blessed Samuel who was ministered to thee by High Priest Eli, and grant them so devoutly to serve at Thine altar on earth that they may at last be counted worthy to worship at Thine altar in Heaven, through Jesus Christ our Lord. Amen.</p>
+            <p><strong>PRIEST</strong>: Bless, Lord these thy servants as thou did bless Samuel who was ministered to thee by High Priest Eli, and grant them so devoutly to serve at Thine altar on earth that they may at last be counted worthy to worship at Thine altar in Heaven, through Jesus Christ our Lord. Amen.</p>
         </div>
+
         <div id="who-is-st-lawrence" class="section">
             <h2>4. Who is ST. LAWRENCE?</h2>
             <img src="ST.jpg" alt="Image of ST Lawrence">
             <p>Lawrence (Latin laurentius, literally “laurelled”) is the name of the archdeacon of the church of Rome who was martyred (a person who is killed because of their religious or other beliefs) in Rome in the year 258 during the persecution of Christians ordered by the Emperor Valerian. In the century after his martyrdom, devotion to this St. Lawrence developed rapidly and far beyond Rome. The saint was tied on top of an iron grill over a slow fire that roasted him. God gave him so much strength and joy that Lawrence joked with the judge saying "Turn me over". Before he died, he prayed that the city of Rome might be converted to Jesus. He prayed that the Catholic faith would spread all over the world.</p>
         </div>
 
-                 <div id="14-stations" class="section">
+        <div id="14-stations" class="section">
             <h2>5. The 14 Stations of the Cross</h2>
             <img src="14.jpg" alt="Image of the Stations of the Cross">
             <p>The traditional 14 Stations of the Cross are:</p>
@@ -121,7 +167,7 @@
                 <li>Jesus is laid in the tomb</li>
             </ol>
         </div>
-        
+				
         <div id="sacraments" class="section">
             <h2>6. Sacraments of the Church</h2>
             <img src="sacraments.png" alt="Image of the Sacraments" style="max-width: 100%; height: auto;">
@@ -242,36 +288,45 @@
 						<p>A Flagon filled with extra wine may also be
 						placed on the Credence Table, as needed.
 						</center>
-						<a href = "https://adots.org/wp-content/uploads/2013/07/Altar_Guild_Manual.pdf"> Altar Guild Manual</a><br>
-						<br>
-						</div>
-						
-								
-					
-				</div>					
+        
+        <div id="sacraments" class="section">
+            <h2>10. Sacraments of the Church</h2>
+            <img src="sacraments.png" alt="Image of the Sacraments" style="max-width: 100%; height: auto;">
+            <p>The Church recognizes seven sacraments: Baptism, Confirmation, Eucharist, Penance, Anointing of the Sick, Holy Orders, and Matrimony.</p>
+        </div>
+
+        <div id="general-knowledge" class="section">
+            <h2>11. General Knowledge</h2>
+            <p><a href="ST.pdf" class="download-link" download>Download General Knowledge PDF</a></p>
+        </div>
+
+        <div id="altar-guild" class="section">
+            <h2>12. Altar Guild Manual</h2>
+            <p><a href="Altar_Guild_Manual.pdf" class="altar-guild-link" download>Download Altar Guild Manual</a></p>
+        </div>
+
+        <div id="test" class="section">
+            <h2>13. Test</h2>
+            <p><a href="Test.html" class="test-link" onclick="showAlert()">Start the Test</a></p>
+        </div>
+
         <div class="glossary">
-            <center><h2>Glossary</h2>
+            <h2>Glossary</h2>
             <dl>
-                <dt><a href="#sacrament">Sacrament</a></dt>
-                <dd>A sacred rite recognized as of particular importance and significance in the Church.</dd>
-
-                <dt><a href="#investiture">Investiture</a></dt>
-                <dd>The formal installation of a person into an office or role, often accompanied by ceremonial rites.</dd>
-
-                <dt><a href="#laurence">St. Laurence</a></dt>
-                <dd>A Christian martyr and saint, celebrated for his steadfast faith and courage.</dd></center>
+                <dt>Archdeacon</dt>
+                <dd>A senior clergy member who oversees a group of churches.</dd>
+                <dt>Martyr</dt>
+                <dd>A person who is killed because of their religious or other beliefs.</dd>
+                <dt>Persecution</dt>
+                <dd>Hostility and ill-treatment, especially because of race or political or religious beliefs.</dd>
             </dl>
         </div>
-               <center> <h4>Have a blessed day;)</h4></center>
-
-        <div class="download-link">
-           <button> <a href="Server_Instructions.pdf" download>Download PDF</a></button>
-        </div>
-
-        <div class="test-link">
-           <button> <a href="test.html">Test your knowledge.</a></button>
-        </div>
-            <p>&copy; 2024 St. Lawrence Church. All rights reserved.</p>
     </div>
+    <script>
+        function showAlert() {
+            alert("Please make sure you are prepared before starting the test. Good luck!");
+        }
+    </script>
 </body>
 </html>
+
