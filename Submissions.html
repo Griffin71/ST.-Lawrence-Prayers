@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submissions Page</title>
+   <!-- <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+   
+		<style>
+					/* Additional Styles for Submissions */
+			.submission {
+				padding: 10px;
+				border-bottom: 1px solid #ddd;
+			}
+			.trophy {
+				font-size: 1.5em;
+				color: gold;
+			}
+
+		</style>
+</head>
+<body>
+    <h1>Submissions</h1>
+    <div id="submissions">
+        <!-- Submissions will be populated here -->
+    </div>
+
+    <script>
+			window.addEventListener('load', function() {
+    const submissionsContainer = document.getElementById('submissions');
+
+    // Fetch and display submissions
+    fetch('submissions.json')
+        .then(response => response.json())
+        .then(data => {
+            data.submissions.forEach(submission => {
+                const div = document.createElement('div');
+                div.classList.add('submission');
+                
+                const result = submission.score >= 80 ? 
+                    `<span class="trophy">🏆</span> ${submission.name} - Passed with Distinction` :
+                    submission.score >= 50 ? 
+                    `${submission.name} - Passed` : 
+                    `${submission.name} - Failed`;
+                
+                div.innerHTML = `<p>${result}</p>`;
+                submissionsContainer.appendChild(div);
+            });
+        });
+});
+
+	</script> 
+</body>
+</html>
