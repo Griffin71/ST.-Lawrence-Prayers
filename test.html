@@ -25,6 +25,13 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+        }
+        .popup-content img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
         }
         .input-group {
             display: flex;
@@ -128,20 +135,37 @@
                     <h4>4.1. How was St. Lawrence martyred?</h4><br>
                     <label><input type="radio" name="q4_1" value="a"> a) He was hanged.</label><br>
                     <label><input type="radio" name="q4_1" value="b"> b) He was beheaded.</label><br>
-                    <label><input type="radio" name="q4_1" value="c"> c) He was roasted on an iron grill.</label><br>
+                    <label><input type="radio" name="q4_1" value="c"> c) He was burned alive.</label><br>
                     <label><input type="radio" name="q4_1" value="d"> d) He was drowned.</label><br>
-
-                    <h4>4.2. What did St. Lawrence distribute to the poor?</h4><br>
-                    <label><input type="radio" name="q4_2" value="a"> a) Food and water</label><br>
-                    <label><input type="radio" name="q4_2" value="b"> b) Money and valuables</label><br>
-                    <label><input type="radio" name="q4_2" value="c"> c) Clothes</label><br>
-                    <label><input type="radio" name="q4_2" value="d"> d) Books and manuscripts</label><br>
                 </div>
 
-                <div class="input-group">
-                    <img src="icon.ico" alt="Icon">
-                    <input type="text" id="fullName" placeholder="Full Name" required>
+                <div class="question">
+                    <h3>5. Why did the Romans persecute Christians during St. Lawrence's time?</h3><br>
+                    <h4>5.1. What was the main reason for the persecution?</h4><br>
+                    <label><input type="radio" name="q5_1" value="a"> a) Christians refused to worship Roman gods.</label><br>
+                    <label><input type="radio" name="q5_1" value="b"> b) Christians were seen as a threat to the Roman Empire.</label><br>
+                    <label><input type="radio" name="q5_1" value="c"> c) Christians were accused of cannibalism.</label><br>
+                    <label><input type="radio" name="q5_1" value="d"> d) Christians were thought to practice magic.</label><br>
                 </div>
+
+                <div class="question">
+                    <h3>6. Liturgical Seasons and Vestments</h3><br>
+                    <h4>6.1. What is the color of vestments worn during the season of Advent?</h4><br>
+                    <label><input type="radio" name="q6_1" value="a"> a) Green</label><br>
+                    <label><input type="radio" name="q6_1" value="b"> b) Red</label><br>
+                    <label><input type="radio" name="q6_1" value="c"> c) Violet</label><br>
+                    <label><input type="radio" name="q6_1" value="d"> d) White</label><br>
+                </div>
+
+                <div class="question">
+                    <h3>7. What is the significance of the Eucharist?</h3><br>
+                    <h4>7.1. What does the bread and wine represent?</h4><br>
+                    <label><input type="radio" name="q7_1" value="a"> a) The body and blood of Christ</label><br>
+                    <label><input type="radio" name="q7_1" value="b"> b) The word of God</label><br>
+                    <label><input type="radio" name="q7_1" value="c"> c) The Holy Spirit</label><br>
+                    <label><input type="radio" name="q7_1" value="d"> d) The Church</label><br>
+                </div>
+
                 <button type="submit">Submit</button>
             </div>
         </form>
@@ -149,87 +173,90 @@
 
     <div id="popup" class="hidden">
         <div class="popup-content">
-            <p>Please enter your full name before submitting the test.</p>
-            <button onclick="closePopup()">Close</button>
+            <img src="icon.png" alt="Icon">
+            <div>
+                <h2>Please Enter Your Full Name</h2>
+                <div class="input-group">
+                    <img src="icon.png" alt="Icon">
+                    <input type="text" id="fullNameInput" placeholder="Enter full name">
+                </div>
+                <button onclick="submitForm()">Submit</button>
+            </div>
         </div>
     </div>
 
     <script>
-        let timerInterval;
-        let timeRemaining = 15 * 60;
+        const correctAnswers = {
+            q1: "d",
+            q2_1: "b",
+            q2_2: "b",
+            q2_3: "d",
+            q2_4: "b",
+            q3_1: "c",
+            q3_2: "b",
+            q3_3: "b",
+            q4_1: "c",
+            q5_1: "a",
+            q6_1: "c",
+            q7_1: "a"
+        };
+
+        function showPopup() {
+            document.getElementById('popup').classList.remove('hidden');
+        }
+
+        function submitForm() {
+            const fullName = document.getElementById('fullNameInput').value;
+            if (fullName.trim() === "") {
+                alert("Please enter your full name.");
+                return;
+            }
+
+            const form = document.getElementById('testForm');
+            const formData = new FormData(form);
+            let score = 0;
+            for (let [name, value] of formData.entries()) {
+                if (correctAnswers[name] === value) {
+                    score++;
+                }
+            }
+
+            const result = {
+                name: fullName,
+                score: score,
+                total: Object.keys(correctAnswers).length
+            };
+
+            localStorage.setItem('testResult', JSON.stringify(result));
+            window.location.href = 'Submissions.html';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            showPopup();
+        }
+
+        // Timer Functionality
+        let timer;
+        let timeLeft = 15 * 60; // 15 minutes in seconds
 
         function startTimer() {
-            timerInterval = setInterval(() => {
-                if (timeRemaining <= 0) {
-                    clearInterval(timerInterval);
-                    document.getElementById("testForm").submit();
-                } else {
-                    timeRemaining--;
-                    const minutes = Math.floor(timeRemaining / 60);
-                    const seconds = timeRemaining % 60;
-                    document.getElementById("time").textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timer = setInterval(() => {
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    alert("Time is up! The test will now be submitted.");
+                    submitForm();
                 }
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('time').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                timeLeft--;
             }, 1000);
         }
 
         window.onload = function() {
             startTimer();
-        };
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            const fullName = document.getElementById("fullName").value;
-            if (fullName.trim() === "") {
-                showPopup();
-                return false;
-            }
-
-            const correctAnswers = {
-                q1: 'd',
-                q2_1: 'b',
-                q2_2: 'b',
-                q2_3: 'd',
-                q2_4: 'b',
-                q3_1: 'c',
-                q3_2: 'b',
-                q3_3: 'b',
-                q4_1: 'c',
-                q4_2: 'b'
-            };
-
-            const form = document.getElementById("testForm");
-            const formData = new FormData(form);
-            let score = 0;
-            for (let [key, value] of formData.entries()) {
-                if (correctAnswers[key] === value) {
-                    score++;
-                }
-            }
-
-            localStorage.setItem('testSubmission', JSON.stringify({
-                name: fullName,
-                score: score
-            }));
-
-            form.submit();
         }
-
-        function showPopup() {
-            document.getElementById("popup").classList.remove("hidden");
-        }
-
-        function closePopup() {
-            document.getElementById("popup").classList.add("hidden");
-        }
-
-        // To prevent users from refreshing and retaking the test
-        window.addEventListener('beforeunload', function (e) {
-            e.preventDefault();
-            e.returnValue = '';
-        });
     </script>
-    <p>&copy; 2024 St. Lawrence Church. All rights reserved.</p>
 </body>
 </html>
-
-
