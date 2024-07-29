@@ -4,282 +4,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Page</title>
-	<link rel="icon" href="ch_Y0b_icon.ico" type="image/x-icon">
-	   
-   <!-- <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-		   <style>
-			/* Popup Styles */
-		.hidden { display: none; }
-		#popup {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0,0,0,0.5);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.popup-content {
-			background-color: #f5f5f5;
-			padding: 20px;
-			border-radius: 10px;
-			text-align: center;
-			box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
-		}
-		.input-group {
-			display: flex;
-			align-items: center;
-			margin: 10px 0;
-		}
-		.input-group img {
-			width: 30px;
-			height: 30px;
-			margin-right: 10px;
-		}
-		button {
-			background-color: #6a0dad; /* Unique background color */
-			color: white;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-		button:hover {
-			background-color: #5a0bda; /* Darker shade on hover */
-		}
+    <link rel="icon" href="ch_Y0b_icon.ico" type="image/x-icon">
+    <style>
+        /* Popup Styles */
+        .hidden { display: none; }
+        #popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-content {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .input-group img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #6a0dad; /* Unique background color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5a0bda; /* Darker shade on hover */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .question {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<header>
+    <div id="timer">
+        <center><p>Time remaining: <span id="time">15:00</span></p></center>
+    </div>
+</header>
+<body>
+    <center>
+        <form id="testForm" onsubmit="return handleSubmit(event)">
+            <div class="container">
+                <h1>ST. Lawrence Servers Knowledge Test</h1>
+                <div class="question">
+                    <h2>Part One: New Servers</h2>
+                    <h3>1. Requirements of Being a Server</h3><br>
+                    <label><input type="radio" name="q1" value="a"> a) Willing to serve God and forget the world around.</label><br>
+                    <label><input type="radio" name="q1" value="b"> b) Able to sing in the choir.</label><br>
+                    <label><input type="radio" name="q1" value="c"> c) Able to read and write.</label><br>
+                    <label><input type="radio" name="q1" value="d"> d) Willing to obey the rules and customs of the Parish.</label><br>
+                </div>
 
-		   </style>
-		</head>
-		<header>
-		<div id="timer">
-   <center> <p>Time remaining: <span id="time">15:00</span></p></center>
-	</div>
+                <div class="question">
+                    <h3>2. Saint Laurance: Motto, Aims, Rules, and Promise</h3><br>
+                    <h4>2.1. What is the motto of Saint Laurance?</h4><br>
+                    <label><input type="radio" name="q2_1" value="a"> a) To serve God and love my neighbors.</label><br>
+                    <label><input type="radio" name="q2_1" value="b"> b) I will go unto the altar of God, even unto God of my joy and gladness.</label><br>
+                    <label><input type="radio" name="q2_1" value="c"> c) To be present at every sacrament of the Church.</label><br>
+                    <label><input type="radio" name="q2_1" value="d"> d) To comfort the needy, suffering, and the sick.</label><br>
 
-		</header>
-		<body>
-			<center><form id="testForm">
-				<!-- Test Questions Here -->
-				<div class="container">
-        <h1>ST. Lawrence Servers Knowledge Test</h1>
-							 <div class="question">
-            <h2>Part One: New Servers</h2>
-            <h3>1. Requirements of Being a Server</h3><br>
-            <label><input type="radio" name="q1" value="a"> a) Willing to serve God and forget the world around.</label><br>
-            <label><input type="radio" name="q1" value="b"> b) Able to sing in the choir.</label><br>
-            <label><input type="radio" name="q1" value="c"> c) Able to read and write.</label><br>
-            <label><input type="radio" name="q1" value="d"> d) Willing to obey the rules and customs of the Parish.</label><br>
+                    <h4>2.2. Which of the following is an aim of Saint Laurance?</h4><br>
+                    <label><input type="radio" name="q2_2" value="a"> a) To collect donations for the Church.</label><br>
+                    <label><input type="radio" name="q2_2" value="b"> b) To be present at every sacrament of the Church.</label><br>
+                    <label><input type="radio" name="q2_2" value="c"> c) To organize community events.</label><br>
+                    <label><input type="radio" name="q2_2" value="d"> d) To read the Gospel during the service.</label><br>
+
+                    <h4>2.3. Which of the following is NOT a rule of Saint Laurance?</h4><br>
+                    <label><input type="radio" name="q2_3" value="a"> a) To respect and be obedient.</label><br>
+                    <label><input type="radio" name="q2_3" value="b"> b) To attend Guild meetings regularly.</label><br>
+                    <label><input type="radio" name="q2_3" value="c"> c) To be present and punctual at all services.</label><br>
+                    <label><input type="radio" name="q2_3" value="d"> d) To write weekly reports for the priest.</label><br>
+
+                    <h4>2.4. What do servers promise in their oath?</h4><br>
+                    <label><input type="radio" name="q2_4" value="a"> a) To serve occasionally with joy and understanding.</label><br>
+                    <label><input type="radio" name="q2_4" value="b"> b) To offer themselves to God, Blessed Virgin Mary, and St. Laurance.</label><br>
+                    <label><input type="radio" name="q2_4" value="c"> c) To avoid participating in any non-Church activities.</label><br>
+                    <label><input type="radio" name="q2_4" value="d"> d) To become priests in the future.</label><br>
+                </div>
+
+                <div class="question">
+                    <h3>3. The Investiture Procedure</h3><br>
+                    <h4>3.1. Who presents the candidates to be admitted as servers?</h4><br>
+                    <label><input type="radio" name="q3_1" value="a"> a) The Priest</label><br>
+                    <label><input type="radio" name="q3_1" value="b"> b) The Bishop</label><br>
+                    <label><input type="radio" name="q3_1" value="c"> c) The Headserver</label><br>
+                    <label><input type="radio" name="q3_1" value="d"> d) The Deacon</label><br>
+
+                    <h4>3.2. What do the servers promise regarding their duties?</h4><br>
+                    <label><input type="radio" name="q3_2" value="a"> a) To perform their duties when convenient.</label><br>
+                    <label><input type="radio" name="q3_2" value="b"> b) To be regular and punctual in their duties.</label><br>
+                    <label><input type="radio" name="q3_2" value="c"> c) To attend services occasionally.</label><br>
+                    <label><input type="radio" name="q3_2" value="d"> d) To write reports about their duties.</label><br>
+
+                    <h4>3.3. What prayer is recited for strength to quench the flames of evil desire?</h4><br>
+                    <label><input type="radio" name="q3_3" value="a"> a) The Lord’s Prayer</label><br>
+                    <label><input type="radio" name="q3_3" value="b"> b) St. Laurance Prayer</label><br>
+                    <label><input type="radio" name="q3_3" value="c"> c) Hail Mary</label><br>
+                    <label><input type="radio" name="q3_3" value="d"> d) The Nicene Creed</label><br>
+                </div>
+
+                <div class="question">
+                    <h3>4. Who is St. Lawrence?</h3><br>
+                    <h4>4.1. How was St. Lawrence martyred?</h4><br>
+                    <label><input type="radio" name="q4_1" value="a"> a) He was hanged.</label><br>
+                    <label><input type="radio" name="q4_1" value="b"> b) He was beheaded.</label><br>
+                    <label><input type="radio" name="q4_1" value="c"> c) He was roasted on an iron grill.</label><br>
+                    <label><input type="radio" name="q4_1" value="d"> d) He was drowned.</label><br>
+
+                    <h4>4.2. What did St. Lawrence distribute to the poor?</h4><br>
+                    <label><input type="radio" name="q4_2" value="a"> a) Food and water</label><br>
+                    <label><input type="radio" name="q4_2" value="b"> b) Money and valuables</label><br>
+                    <label><input type="radio" name="q4_2" value="c"> c) Clothes</label><br>
+                    <label><input type="radio" name="q4_2" value="d"> d) Books and manuscripts</label><br>
+                </div>
+
+                <div class="input-group">
+                    <img src="icon.ico" alt="Icon">
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </center>
+
+    <div id="popup" class="hidden">
+        <div class="popup-content">
+            <p>Please enter your full name before submitting the test.</p>
+            <button onclick="closePopup()">Close</button>
         </div>
+    </div>
 
-        <div class="question">
-            <h3>2. Saint Laurance: Motto, Aims, Rules, and Promise</h3><br>
-            <h4>2.1. What is the motto of Saint Laurance?</h4><br>
-            <label><input type="radio" name="q2_1" value="a"> a) To serve God and love my neighbors.</label><br>
-            <label><input type="radio" name="q2_1" value="b"> b) I will go unto the altar of God, even unto God of my joy and gladness.</label><br>
-            <label><input type="radio" name="q2_1" value="c"> c) To be present at every sacrament of the Church.</label><br>
-            <label><input type="radio" name="q2_1" value="d"> d) To comfort the needy, suffering, and the sick.</label><br>
+    <script>
+        let timerInterval;
+        let timeRemaining = 15 * 60;
 
-            <h4>2.2. Which of the following is an aim of Saint Laurance?</h4><br>
-            <label><input type="radio" name="q2_2" value="a"> a) To collect donations for the Church.</label><br>
-            <label><input type="radio" name="q2_2" value="b"> b) To be present at every sacrament of the Church.</label><br>
-            <label><input type="radio" name="q2_2" value="c"> c) To organize community events.</label><br>
-            <label><input type="radio" name="q2_2" value="d"> d) To read the Gospel during the service.</label><br>
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById("testForm").submit();
+                } else {
+                    timeRemaining--;
+                    const minutes = Math.floor(timeRemaining / 60);
+                    const seconds = timeRemaining % 60;
+                    document.getElementById("time").textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                }
+            }, 1000);
+        }
 
-            <h4>2.3. Which of the following is NOT a rule of Saint Laurance?</h4><br>
-            <label><input type="radio" name="q2_3" value="a"> a) To respect and be obedient.</label><br>
-            <label><input type="radio" name="q2_3" value="b"> b) To attend Guild meetings regularly.</label><br>
-            <label><input type="radio" name="q2_3" value="c"> c) To be present and punctual at all services.</label><br>
-            <label><input type="radio" name="q2_3" value="d"> d) To write weekly reports for the priest.</label><br>
+        window.onload = function() {
+            startTimer();
+        };
 
-            <h4>2.4. What do servers promise in their oath?</h4>
-            <label><input type="radio" name="q2_4" value="a"> a) To serve occasionally with joy and understanding.</label><br>
-            <label><input type="radio" name="q2_4" value="b"> b) To offer themselves to God, Blessed Virgin Mary, and St. Laurance.</label><br>
-            <label><input type="radio" name="q2_4" value="c"> c) To avoid participating in any non-Church activities.</label><br>
-            <label><input type="radio" name="q2_4" value="d"> d) To become priests in the future.</label><br>
-        </div>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const fullName = document.getElementById("fullName").value;
+            if (fullName.trim() === "") {
+                showPopup();
+                return false;
+            }
 
-        <div class="question">
-            <h3>3. The Investiture Procedure</h3><br>
-            <h4>3.1. Who presents the candidates to be admitted as servers?</h4><br>
-            <label><input type="radio" name="q3_1" value="a"> a) The Priest</label><br>
-            <label><input type="radio" name="q3_1" value="b"> b) The Bishop</label><br>
-            <label><input type="radio" name="q3_1" value="c"> c) The Headserver</label><br>
-            <label><input type="radio" name="q3_1" value="d"> d) The Deacon</label><br>
+            const correctAnswers = {
+                q1: 'd',
+                q2_1: 'b',
+                q2_2: 'b',
+                q2_3: 'd',
+                q2_4: 'b',
+                q3_1: 'c',
+                q3_2: 'b',
+                q3_3: 'b',
+                q4_1: 'c',
+                q4_2: 'b'
+            };
 
-            <h4>3.2. What do the servers promise regarding their duties?</h4><br>
-            <label><input type="radio" name="q3_2" value="a"> a) To perform their duties when convenient.</label><br>
-            <label><input type="radio" name="q3_2" value="b"> b) To be regular and punctual in their duties.</label><br>
-            <label><input type="radio" name="q3_2" value="c"> c) To attend services occasionally.</label><br>
-            <label><input type="radio" name="q3_2" value="d"> d) To write reports about their duties.</label><br>
+            const form = document.getElementById("testForm");
+            const formData = new FormData(form);
+            let score = 0;
+            for (let [key, value] of formData.entries()) {
+                if (correctAnswers[key] === value) {
+                    score++;
+                }
+            }
 
-            <h4>3.3. What prayer is recited for strength to quench the flames of evil desire?</h4><br>
-            <label><input type="radio" name="q3_3" value="a"> a) The Lord’s Prayer</label><br>
-            <label><input type="radio" name="q3_3" value="b"> b) St. Laurance Prayer</label><br>
-            <label><input type="radio" name="q3_3" value="c"> c) Hail Mary</label><br>
-            <label><input type="radio" name="q3_3" value="d"> d) The Nicene Creed</label><br>
-        </div>
+            localStorage.setItem('testSubmission', JSON.stringify({
+                name: fullName,
+                score: score
+            }));
 
-        <div class="question">
-            <h3>4. Who is St. Lawrence?</h3><br>
-            <h4>4.1. How was St. Lawrence martyred?</h4><br>
-            <label><input type="radio" name="q4_1" value="a"> a) He was hanged.</label><br>
-            <label><input type="radio" name="q4_1" value="b"> b) He was beheaded.</label><br>
-            <label><input type="radio" name="q4_1" value="c"> c) He was roasted on an iron grill.</label><br>
-            <label><input type="radio" name="q4_1" value="d"> d) He was drowned.</label><br>
+            form.submit();
+        }
 
-            <h4>4.2. What did St. Lawrence pray for before he died?</h4>
-            <label><input type="radio" name="q4_2" value="a"> a) For his family’s safety.</label><br>
-            <label><input type="radio" name="q4_2" value="b"> b) For the city of Rome to be converted to Christianity.</label><br>
-            <label><input type="radio" name="q4_2" value="c"> c) For the soldiers who tortured him.</label><br>
-            <label><input type="radio" name="q4_2" value="d"> d) For peace among nations.</label><br>
-        </div>
+        function showPopup() {
+            document.getElementById("popup").classList.remove("hidden");
+        }
 
-        <div class="question">
-            <h3>5. The 14 Stations of the Cross</h3><br>
-            <h4>5.1. Which is the 3rd Station of the Cross?</h4><br>
-            <label><input type="radio" name="q5_1" value="a"> a) Jesus falls the first time.</label><br>
-            <label><input type="radio" name="q5_1" value="b"> b) Jesus meets His Mother.</label><br>
-            <label><input type="radio" name="q5_1" value="c"> c) Jesus falls the third time.</label><br>
-            <label><input type="radio" name="q5_1" value="d"> d) Jesus is condemned to death.</label><br>
+        function closePopup() {
+            document.getElementById("popup").classList.add("hidden");
+        }
 
-            <h4>5.2. Who carries the cross in the 5th Station of the Cross?</h4><br>
-            <label><input type="radio" name="q5_2" value="a"> a) Jesus alone.</label><br>
-            <label><input type="radio" name="q5_2" value="b"> b) Simon of Cyrene.</label><br>
-            <label><input type="radio" name="q5_2" value="c"> c) Veronica.</label><br>
-            <label><input type="radio" name="q5_2" value="d"> d) The Roman soldiers.</label><br>
-        </div>
+        // To prevent users from refreshing and retaking the test
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+</body>
+</html>
 
-        <div class="question">
-            <h3>6. Sacraments of the Church</h3><br>
-            <h4>6.1. How many sacraments are there in the Church?</h4><br>
-            <label><input type="radio" name="q6_1" value="a"> a) 5</label><br>
-            <label><input type="radio" name="q6_1" value="b"> b) 6</label><br>
-            <label><input type="radio" name="q6_1" value="c"> c) 7</label><br>
-            <label><input type="radio" name="q6_1" value="d"> d) 8</label><br>
 
-            <h4>6.2. Which sacrament is NOT part of the Sacraments of Initiation?</h4><br>
-            <label><input type="radio" name="q6_2" value="a"> a) Baptism</label><br>
-            <label><input type="radio" name="q6_2" value="b"> b) Confirmation</label><br>
-            <label><input type="radio" name="q6_2" value="c"> c) Eucharist</label><br>
-            <label><input type="radio" name="q6_2" value="d"> d) Penance and Reconciliation</label><br>
-        </div>
-
-        <div class="question">
-            <h3>7. Vestments and Robes</h3><br>
-            <h4>7.1. What is the term for the garments worn at special ceremonies by clergy members?</h4><br>
-            <label><input type="radio" name="q7_1" value="a"> a) Vestments</label><br>
-            <label><input type="radio" name="q7_1" value="b"> b) Cassocks</label><br>
-            <label><input type="radio" name="q7_1" value="c"> c) Chasubles</label><br>
-            <label><input type="radio" name="q7_1" value="d"> d) Ciboriums</label><br>
-
-            <h4>7.2. Why do Anglican priests wear robes?</h4><br>
-            <label><input type="radio" name="q7_2" value="a"> a) For comfort during long services.</label><br>
-            <label><input type="radio" name="q7_2" value="b"> b) To signify their commitment to a life of service.</label><br>
-            <label><input type="radio" name="q7_2" value="c"> c) To distinguish themselves from the congregation.</label><br>
-            <label><input type="radio" name="q7_2" value="d"> d) To adhere to fashion trends.</label><br>
-        </div>
-
-        <div class="question">
-            <h3>8. Sacred Vessels</h3><br>
-            <h4>8.1. Which vessel is used for the bread during the Holy Communion?</h4><br>
-            <label><input type="radio" name="q8_1" value="a"> a) Chalice</label><br>
-            <label><input type="radio" name="q8_1" value="b"> b) Paten</label><br>
-            <label><input type="radio" name="q8_1" value="c"> c) Ciborium</label><br>
-            <label><input type="radio" name="q8_1" value="d"> d) Flagon</label><br>
-
-            <h4>8.2. What is the purpose of the Lavabo Bowl?</h4><br>
-            <label><input type="radio" name="q8_2" value="a"> a) To hold wine for communion.</label><br>
-            <label><input type="radio" name="q8_2" value="b"> b) To cleanse the celebrant’s fingers ceremonially.</label><br>
-            <label><input type="radio" name="q8_2" value="c"> c) To store the host wafers.</label><br>
-            <label><input type="radio" name="q8_2" value="d"> d) To remove impurities from the wine.</label><br>
-        </div>
-
-        <div class="question">
-            <h3>9. Church Calendar and Seasons</h3>
-            <h4>9.1. What season is represented by the phrase "Jesus is coming"?</h4><br>
-            <label><input type="radio" name="q9_1" value="a"> a) Advent</label><br>
-            <label><input type="radio" name="q9_1" value="b"> b) Christmas</label><br>
-            <label><input type="radio" name="q9_1" value="c"> c) Lent</label><br>
-            <label><input type="radio" name="q9_1" value="d"> d) Easter</label><br>
-
-            <h4>9.2. What color is associated with the season of Lent?</h4><br>
-            <label><input type="radio" name="q9_2" value="a"> a) Green</label><br>
-            <label><input type="radio" name="q9_2" value="b"> b) Purple</label><br>
-            <label><input type="radio" name="q9_2" value="c"> c) White</label><br>
-            <label><input type="radio" name="q9_2" value="d"> d) Red</label><br>
-        </div>
-
-        <div class="question">
-            <h3>10. The Altar Table</h3>
-            <h4>10.1. What is the first step in preparing the Altar Table for Holy Eucharist?</h4><br>
-            <label><input type="radio" name="q10_1" value="a"> a) Placing the Purificator over the Chalice.</label><br>
-            <label><input type="radio" name="q10_1" value="b"> b) Placing the Chalice in the center of the Corporal.</label><br>
-            <label><input type="radio" name="q10_1" value="c"> c) Opening the folded Corporal and centering it on the Altar.</label><br>
-            <label><input type="radio" name="q10_1" value="d"> d) Placing the Paten over the Purificator.</label><br>
-
-            <h4>10.2. What is the purpose of the Veil in the Altar Table preparation?</h4><br>
-            <label><input type="radio" name="q10_2" value="a"> a) To cover the Host and Paten.</label><br>
-            <label><input type="radio" name="q10_2" value="b"> b) To signify the start of the service.</label><br>
-            <label><input type="radio" name="q10_2" value="c"> c) To ensure the proper alignment of the Corporal.</label><br>
-            <label><input type="radio" name="q10_2" value="d"> d) To keep the Altar Table clean.</label><br>
-        </div>
-<br>
-			<br>	<!-- Submit Button -->
-				<button type="button" id="submitBtn">Submit</button>
-			</form></center>
-			<br>
-
-			 Popup for submitting 
-			<div id="popup" class="hidden">
-				<div class="popup-content">
-					<p><strong>To submit, you must enter your real full name and once you have submitted, you can't go back.</strong></p>
-					<div class="input-group">
-						<img src="default_profile.png" alt="Profile Icon">
-						<input type="text" id="fullName" placeholder="Full Name" required>
-					</div>
-					<button id="confirmSubmitBtn">Submit</button>
-				</div>
-			</div>
-				 <p>&copy; 2024 St. Lawrence Church. All rights reserved.</p>
-			<script>
-			document.getElementById('submitBtn').addEventListener('click', function() {
-			document.getElementById('popup').classList.remove('hidden');
-		});
-
-		document.getElementById('confirmSubmitBtn').addEventListener('click', function() {
-			const fullName = document.getElementById('fullName').value.trim();
-			if (fullName) {
-				localStorage.setItem('userFullName', fullName);
-				document.getElementById('testForm').submit();
-			} else {
-				alert('Please enter your full name.');
-			}
-		});
-
-		// Timer
-		const timerDuration = 15 * 60 * 1000; // 15 minutes
-		let timer;
-
-		function startTimer() {
-			const endTime = Date.now() + timerDuration;
-			timer = setInterval(function() {
-				const timeLeft = endTime - Date.now();
-				if (timeLeft <= 0) {
-					clearInterval(timer);
-					document.getElementById('popup').classList.remove('hidden');
-				}
-			}, 1000);
-		}
-
-		startTimer();
-
-		// Refresh lockout
-		if (localStorage.getItem('lockedOut') === 'true') {
-			alert('You have been locked out for a day. Please try again later.');
-			document.body.innerHTML = '';
-		}
-
-			</script> 
-		</body>
-		</html>
